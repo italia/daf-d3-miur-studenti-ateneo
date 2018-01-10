@@ -12,10 +12,10 @@
 
 .bar--positive { fill: steelblue; }
 .bar--positiveF { fill: darkblue; }
-.bar--negative { fill: firebrick; }
-.bar--negativeF { fill: darkRed; }
 .bar--neutral { fill: wheat; }
 .bar--neutralF { fill: tan; }
+.bar--negative { fill: firebrick; }
+.bar--negativeF { fill: darkred; }
 
 .ocks-org body {
   background: white;

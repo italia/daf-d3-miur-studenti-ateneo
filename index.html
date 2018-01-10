@@ -33,9 +33,9 @@
     Il grafico distingue 
     <br>i dati relativi agli studenti di sesso maschile 
     <br>da quelli di sesso femminile 
-    <br>utilizzando per gli studenti di sesso maschile un colore pi&ugrave; intenso 
-    <br>(ad esempi, beige chiaro per studentesse che studiano in sede, 
-    <br>beige pi&ugrave; scuro per studenti che studiano in sede).
+    <br>utilizzando per gli studenti di sesso femminile un colore pi&ugrave; intenso 
+    <br>(ad esempio, beige scuro per studentesse che studiano in sede, 
+    <br>beige pi&ugrave; chiaro per studenti che studiano in sede).
     <br><br>
     <div>
         <input type="text" data-type="search" placeholder="inserisci il nome di una regione" id="tags" size="35"></input>
@@ -59,6 +59,7 @@
     </div>
     <div id="credits" style="color:grey; font-size: 0.8em">
     </div>
+
 <script>
 
 var urlDati = "file02_2015-16_provenienze.csv";
@@ -298,7 +299,7 @@ function visualizza(dati, regione, corsi) {
 
     legend.append('text')
       .text(function(d,i) { if (i===0) return 'M'; })
-      .attr('transform', 'translate(25, -8)');
+      .attr('transform', 'translate(23, -8)');
 
     //add credits
     var urlImmagine = "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg";
