@@ -2,7 +2,7 @@
 <html class="ocks-org do-not-copy">
 <!-- task https://github.com/italia/daf-d3-visualization-->
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     
     <title>Iscritti Anno 2015-2016</title>
 
@@ -17,35 +17,70 @@
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
-<body>
-    <h1 style="text-align: center">Iscritti Anno 2015-2016</h1>
+<body style="text-align: center">
+    <h1>Flusso studenti Ateneo - Anno 2015-2016</h1>
     <br>
     <br>
-    <div style="text-align: middle;">
-        <input type="text" data-type="search" placeholder="cerca una regione" id="tags"></input>
+    Visualizza il flusso di studenti per regione.
+    <br> 
+    Inserisci il nome di una regione italiana per visualizzare:
+    <br> 
+    il numero di studenti immatricolati provenienti da una regione diversa (in <span style="color:steelblue">blu</span>, flusso entrante), 
+    <br>
+    il numero di studenti che ha lasciato la regione per immatricolarsi in una regione diversa (in <span style="color:firebrick">rosso</span>, flusso uscente), 
+    <br>ed il numero di studenti provenienti dalla stessa regione in cui sono iscritti (in <span style="color:wheat">marrone chiaro</span>, neutro).
+    <br><br>
+    Il grafico distingue 
+    <br>i dati relativi agli studenti di sesso maschile 
+    <br>da quelli di sesso femminile 
+    <br>utilizzando per gli studenti di sesso maschile un colore pi&ugrave; intenso 
+    <br>(ad esempi, beige chiaro per studentesse che studiano in sede, 
+    <br>beige pi&ugrave; scuro per studenti che studiano in sede).
+    <br><br>
+    <div>
+        <input type="text" data-type="search" placeholder="inserisci il nome di una regione" id="tags" size="35"></input>
     </div>
-    <div style="text-align: middle; display: none;" id="map">
-        <div class="row">
-	    <div class="col-md-5 col-xs-4" style="text-align: right;">
+    <div style="display: none;" id="map">
+        <div class="row" id="arrowsAndLabel">
+	    <div class="col-md-4 col-xs-3" style="text-align: right;">
                 <svg fill="firebrick" transform="scale(-1,1)" width="100" height="100" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
                 <g><g transform="matrix(1 0 0 -1 0 1536)"><path d="M990,1037.7c0-5.3-1.9-9.8-5.7-13.6L766.6,823.3c-6.1-5.3-12.7-6.4-19.8-3.4c-7.2,3.4-10.8,8.9-10.8,16.4v127H28.1c-5.3,0-9.6,1.7-13,5.1c-3.4,3.4-5.1,7.8-5.1,13v108.9c0,5.3,1.7,9.6,5.1,13c3.4,3.4,7.8,5.1,13,5.1h707.8v127c0,7.9,3.6,13.4,10.8,16.4c7.2,3,13.8,2.1,19.8-2.8l217.8-198.5C988.1,1046.9,990,1042.6,990,1037.7z"/></g></g>
                 </svg>
             </div>
-	<div class="col-md-2 col-xs-4" id="region"></div>
-	<div class="col-md-5 col-xs-4" style="text-align: left";>
-	   <svg fill="steelblue" transform="scale(-1,1)" id="arrow-east" width="100" height="100" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
+	    <div class="col-md-2 col-xs-3" id="region"></div>
+	    <div class="col-md-4 col-xs-3" style="text-align: left";>
+	        <svg fill="steelblue" transform="scale(-1,1)" id="arrow-east" width="100" height="100" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
                 <g><g transform="matrix(1 0 0 -1 0 1536)"><path d="M990,1037.7c0-5.3-1.9-9.8-5.7-13.6L766.6,823.3c-6.1-5.3-12.7-6.4-19.8-3.4c-7.2,3.4-10.8,8.9-10.8,16.4v127H28.1c-5.3,0-9.6,1.7-13,5.1c-3.4,3.4-5.1,7.8-5.1,13v108.9c0,5.3,1.7,9.6,5.1,13c3.4,3.4,7.8,5.1,13,5.1h707.8v127c0,7.9,3.6,13.4,10.8,16.4c7.2,3,13.8,2.1,19.8-2.8l217.8-198.5C988.1,1046.9,990,1042.6,990,1037.7z"/></g></g>
+            </div>
+            <div class="col-md-2 col-xs-3" id="legend"></div>
         </div>
     </div>
     <div id="charts">
     </div>
-    <div id="credits" style="coor:grey; font-size: 0.8em">
+    <div id="credits" style="color:grey; font-size: 0.8em">
     </div>
 <script>
 
 var urlDati = "file02_2015-16_provenienze.csv";
-var urlDatiMIUR= "http://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27";
-var licenzaCommons = "[GFDL (http://www.gnu.org/copyleft/fdl.html) o CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0)]";
+
+function crediti(regione) {
+    var urlDatiMIUR= "http://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27";
+    var licenzaCommons = "- licenza <a href=\"http://www.gnu.org/copyleft/fdl.html\">GFDL</a> o <a href=\"https://creativecommons.org/licenses/by-sa/3.0\">CC BY-SA 3.0</a> -";
+    var autoreImmagine = "Xander89";
+    var urlImmagine = "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg"; 
+    var srcImmagine = "/img/Regione_thumb_" + regione.replace(" ", "_") + ".svg";
+    return "<b>Credits</b><br>L\'<a href=\"" +
+        urlImmagine +
+        "\">" +
+        "immagine della regione </a>" +
+        "e\' stata creata da " +
+        autoreImmagine +
+        " " +
+        licenzaCommons +
+        " ed e\' estratta da Wikimedia Commons, i dati sono stati ottenuti dal MIUR, Ufficio Statistica e Studi (<a href=\"" +
+        urlDatiMIUR + 
+        "\">link</a>).";
+}
 
 function visualizza(dati, regione, corsi) {
     d3.select("#region").html("");
@@ -86,7 +121,7 @@ function visualizza(dati, regione, corsi) {
     var emigrati = stat.map(function(e) {return e.emigrati; });
     var inSedePiuImmigrati = stat.map(function(e) {return e.inSede + e.immigrati; });
 
-    var margin = {top: 20, right: 200, bottom: 40, left: 100},
+    var margin = {top: 20, right: 250, bottom: 40, left: 50},
         width = 960 - margin.left - margin.right,
         height = 500 - margin.top - margin.bottom;
 
@@ -103,7 +138,7 @@ function visualizza(dati, regione, corsi) {
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left + ",0)");
 
     x.domain(d3.extent(inSedePiuImmigrati.concat(emigrati), function(d) { return d; })).nice();
     y.domain(corsi);
@@ -143,7 +178,7 @@ function visualizza(dati, regione, corsi) {
         .data(stat)
         .enter();
     bar2.append("rect")
-        .attr("class", "bar bar--inSede")
+        .attr("class", "bar bar--neutral")
         .attr("x", function(d) { return 190 + x(Math.min(0, d.inSedePiuImmigrati)); })
         .attr("y", function(d) { return y(d.corsi); })
         .attr("width", function(d) { return Math.abs(x(d.inSedePiuImmigrati) - x(0)); })
@@ -152,7 +187,7 @@ function visualizza(dati, regione, corsi) {
         .data(stat)
         .enter();
     bar5.append("rect")
-        .attr("class", "bar bar--inSedeF")
+        .attr("class", "bar bar--neutralF")
         .attr("x", function(d) { return 190 + x(Math.min(0, d.inSedeFPiuImmigrati)); })
         .attr("y", function(d) { return y(d.corsi); })
         .attr("width", function(d) { return Math.abs(x(d.inSedeFPiuImmigrati) - x(0)); })
@@ -175,6 +210,7 @@ function visualizza(dati, regione, corsi) {
         .attr("y", function(d) { return y(d.corsi); })
         .attr("width", function(d) { return Math.abs(x(d.immigratiF) - x(0)); })
         .attr("height", y.rangeBand());
+
     //add number of students next to each bar
     bar1.append("text")
         .attr("class", "value")
@@ -208,10 +244,65 @@ function visualizza(dati, regione, corsi) {
         .attr("dy", "1.5em")
         .attr("text-anchor", "end")
         .text(function(d) { return d.immigrati;});
+
+    //add legend
+    var attributes = [
+        { label: "studenti immigrati", F: "darkblue", M: "steelblue" },
+        { label: "studenti emigrati", F: "darkRed", M: "firebrick" },
+        { label: "studenti in sede", F: "tan", M: "wheat" }
+    ];
+				
+    var legendRectSize = 18;
+    var legendSpacing = 4;	
+							
+    var legendBox = d3.select("#legend")
+      .attr("id", "mapSvg")
+      .append("svg")
+      .attr("width", 200)
+      .attr("height", 100)
+      .attr('transform', 'translate(-300,0)')
+      .append("g")
+    
+    var legend = legendBox.selectAll('.legend')   
+      .data(attributes)             
+      .enter()                          
+      .append('g')                      
+      .attr('class', 'legend')          
+      .attr('transform', function(d, i) { 
+        var height = legendRectSize + legendSpacing; 
+          return 'translate(150,' + (i * height + 20) + ')';   
+        });                                                
+
+    legend.append('rect')                                
+      .attr('width', legendRectSize)                     
+      .attr('height', legendRectSize)                    
+      .style('fill', function(d) { return d.F; })
+      .style('stroke', function(d) { return d.F; }); 
+          
+    legend.append('rect')
+      .attr('width', legendRectSize)
+      .attr('height', legendRectSize)
+      .style('fill', function(d) { return d.M; })
+      .style('stroke', function(d) { return d.M; })
+      .attr('transform', 'translate(20,0)');
+
+    legend.append('text')                                
+      .attr('x', legendRectSize + legendSpacing)         
+      .attr('y', legendRectSize - legendSpacing)         
+      .text(function(d) { return d.label; })
+      .attr('transform', 'translate(-130, 0)');   
+  
+    legend.append('text')
+      .text(function(d,i) { if (i===0) return 'F'; })
+      .attr('transform', 'translate(5, -8)');
+
+    legend.append('text')
+      .text(function(d,i) { if (i===0) return 'M'; })
+      .attr('transform', 'translate(25, -8)');
+
     //add credits
     var urlImmagine = "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg";
     var srcImmagine = "/img/Regione_thumb_" + regione.replace(" ", "_") + ".svg";
-    var autoreImmagine = "Xander89";
     d3.select("#region")
         .append("img")
         .attr("src", srcImmagine)
@@ -219,16 +310,7 @@ function visualizza(dati, regione, corsi) {
         .attr("height", 150)
         .style("float", "middle");
     d3.select("#credits")
-        .html("Credits: L'immagine della regione e\' stata creata da <a href=\"" +     
-            urlImmagine +                                                                            
-            "\"> " +
-            autoreImmagine +
-            " " +
-            licenzaCommons +
-            " ed e\' estratta da Wikimedia Commons</a>, i dati sono stati ottenuti dal <a href=\"" +
-            urlDatiMIUR +
-            "\"> " +
-            "sito del MIUR, Ufficio Statistica e Studi.");
+        .html(crediti(regione));
 };
 
 //se la richiesta multiorigine non è abilitata usa un file locale
