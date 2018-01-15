@@ -1,5 +1,3 @@
-/* Copyright 2013 Michael Bostock. All rights reserved. Do not copy. */
-
 @import url(http://fonts.googleapis.com/css?family=PT+Serif|PT+Serif:b|PT+Serif:i|PT+Sans|PT+Sans:b);
 
 .value {
@@ -17,15 +15,15 @@
 .bar--negative { fill: firebrick; }
 .bar--negativeF { fill: darkred; }
 
-.ocks-org body {
+body {
   background: white;
   color: #333;
   font-family: Helvetica Neue;
   margin: 0.5 auto 2em auto;
-  top:0%;
-  bottom:0%;
-  left:5%;
-  right:5%;
+  top: 0%;
+  bottom: 0%;
+  left: 10%;
+  right: 5%;
 }
 
 .container {
@@ -36,9 +34,10 @@
 }
 
 h1 {
+  text-align: center;
   font-size: 2em;
   font-weight: bold;
-  margin: 0.5em 0 0.3em -0.5em;
+  margin: 1em 1em 1em 1em;
 }
 
 
@@ -56,6 +55,7 @@ textarea {
 
 div {
   overflow: scroll;
+  margin: 0em 0em 0em 1em;  
 }
 
 .html .value,
@@ -74,6 +74,16 @@ div {
   color: #636363;
 }
 
-text{
+text {
+  font-size: 0.8em;
+}
+
+p.credit {
+  font-size: 0.8em;
+  color: gray;
+}
+
+div.instructions {
+  color: red;
   font-size: 0.8em;
 }
