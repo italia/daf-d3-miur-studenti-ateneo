@@ -11,7 +11,7 @@ Data contained in the data folder have been extracted with the following command
 
 
 
-# Licenza
+# Licence
 
 Copyright (c) 2017-2018, the respective contributors, as shown by the AUTHORS file.
 
