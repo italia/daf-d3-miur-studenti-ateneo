@@ -1,8 +1,10 @@
 [![Join the #daf-d3 channel](https://img.shields.io/badge/Slack%20channel-%23design--js-blue.svg)](https://developersitalia.slack.com/messages/C8TGKHFQV)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
 
-##Cartella data
-I dati nella cartella data sono stati estratti con il seguente comando:
+# This repo contains a [d3.js](https://d3js.org/) infographic that visualizes (MIUR)[http://www.miur.gov.it/]'s data (link [here](http://dati.ustat.miur.it/dataset/07d1c63f-9b1a-47f0-9648-66663e59c3f6/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27/download/file02_2015-16_provenienze.csv)) on the number, hometown ("comune di residenza"), and sex of enrolled students and newly enrolled students in Italian Universities ("Atenei") in the Academic Year 2015/2016. It shows the inbound, outbound, and stationary flow of students per region, area of study, and sex.
+
+## Data folder
+Data contained in the data folder have been extracted with the following command:
 
     wget -O file02_2015-16_provenienze.csv http://dati.ustat.miur.it/dataset/07d1c63f-9b1a-47f0-9648-66663e59c3f6/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27/download/file02_2015-16_provenienze.csv
 
