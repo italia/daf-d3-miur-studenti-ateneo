@@ -1,4 +1,4 @@
-[![Join the #daf-d3 channel](https://img.shields.io/badge/Slack%20channel-%23design--js-blue.svg)](https://developersitalia.slack.com/messages/C8TGKHFQV)
+[![Join the #daf-d3 channel](https://img.shields.io/badge/Slack%20channel-%23daf--d3-blue.svg)](https://developersitalia.slack.com/messages/C8TGKHFQV)
 [![Get invited](https://slack.developers.italia.it/badge.svg)](https://slack.developers.italia.it/)
 
 ##Cartella data
