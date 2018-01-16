@@ -106,25 +106,7 @@
 <script>
 
 var urlDati = "file02_2015-16_provenienze.csv";
-
-function crediti(regione) {
-    var urlDatiMIUR= "http://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27";
-    var licenzaCommons = "- licenza <a href=\"http://www.gnu.org/copyleft/fdl.html\">GFDL</a> o <a href=\"https://creativecommons.org/licenses/by-sa/3.0\">CC BY-SA 3.0</a> -";
-    var autoreImmagine = "Xander89";
-    var urlImmagine = "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg"; 
-    var srcImmagine = "/img/Regione_thumb_" + regione.replace(" ", "_") + ".svg";
-    return "<br>L\'<a href=\"" +
-        urlImmagine +
-        "\">" +
-        "immagine della regione </a>" +
-        "e\' stata creata da " +
-        autoreImmagine +
-        " " +
-        licenzaCommons +
-        " ed e\' estratta da Wikimedia Commons, i dati sono stati ottenuti dal MIUR, Ufficio Statistica e Studi (<a href=\"" +
-        urlDatiMIUR + 
-        "\">link</a>).";
-}
+var urlDatiMIUR = "http://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27";
 
 function visualizza(dati, regione, corsi) {
     d3.select("#region").html("");
@@ -344,16 +326,33 @@ function visualizza(dati, regione, corsi) {
       .attr('transform', 'translate(23, -8)');
 
     //add credits
-    var urlImmagine = "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg";
-    var srcImmagine = "/img/Regione_thumb_" + regione.replace(" ", "_") + ".svg";
     d3.select("#region")
         .append("img")
-        .attr("src", srcImmagine)
+        .attr("src", "/img/Regione_thumb_" + regione + ".svg")
         .attr("width", 150)
         .attr("height", 150)
         .style("float", "middle");
-    d3.select("#credits")
-        .html(crediti(regione));
+    var crediti = d3.select("#credits");
+    crediti.append("a")
+        .attr("href", "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg")
+        .html("L'immagine della regione ")
+    crediti.append("span")
+        .html("e\' stata creata da Xander89 - licenza ");
+    crediti.append("a")
+        .attr("href", "http://www.gnu.org/copyleft/fdl.html")
+        .html("GDFL");
+    crediti.append("span")
+        .html(" o ");
+    crediti.append("a")
+        .attr("href", "https://creativecommons.org/licenses/by-sa/3.0")
+        .html("CC BY-SA 3.0");
+    crediti.append("span")
+        .html(" - ed è stata estratta da Wikimedia Commons, i dati sono stati ottenuti dal MIUR, Ufficio Statistica e Studi (");
+    crediti.append("a")
+        .attr("href", urlDatiMIUR)
+        .html("link");
+    crediti.append("span")
+        .html(").");
 };
 
 d3.dsv(";")("/data/file02_2015-16_provenienze.csv", function(dati) {
