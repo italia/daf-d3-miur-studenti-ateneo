@@ -328,7 +328,7 @@ function visualizza(dati, regione, corsi) {
     //add credits
     d3.select("#region")
         .append("img")
-        .attr("src", "/img/Regione_thumb_" + regione + ".svg")
+        .attr("src", "img/Regione_thumb_" + regione + ".svg")
         .attr("width", 150)
         .attr("height", 150)
         .style("float", "middle");
@@ -355,7 +355,7 @@ function visualizza(dati, regione, corsi) {
         .html(").");
 };
 
-d3.dsv(";")("/data/file02_2015-16_provenienze.csv", function(dati) {
+d3.dsv(";")("data/file02_2015-16_provenienze.csv", function(dati) {
     var corsi = dati.reduce(function(c, d) {
             if (c.indexOf(d.GRUPPO_CORSO) === -1) {
                 c.push(d.GRUPPO_CORSO);
