@@ -6,8 +6,6 @@
     
     <title>Iscritti Anno 2015/2016</title>
   
-    <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="style.css"> 
@@ -15,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 </head>
 <body>
 <div>
@@ -29,9 +27,7 @@
 	        <tr>
                     <td>
                         <div style="text-align: right;">
-                            <svg fill="firebrick" transform="scale(-1,1)" width="100" height="100" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
-                                <g><g transform="matrix(1 0 0 -1 0 1536)"><path d="M990,1037.7c0-5.3-1.9-9.8-5.7-13.6L766.6,823.3c-6.1-5.3-12.7-6.4-19.8-3.4c-7.2,3.4-10.8,8.9-10.8,16.4v127H28.1c-5.3,0-9.6,1.7-13,5.1c-3.4,3.4-5.1,7.8-5.1,13v108.9c0,5.3,1.7,9.6,5.1,13c3.4,3.4,7.8,5.1,13,5.1h707.8v127c0,7.9,3.6,13.4,10.8,16.4c7.2,3,13.8,2.1,19.8-2.8l217.8-198.5C988.1,1046.9,990,1042.6,990,1037.7z"/></g></g>
-                            </svg>
+                            <img src="img/arrow_west.svg" width="50%"/>
                         </div>
                     </td>
 	            <td>
@@ -39,10 +35,9 @@
                     <td>
 	            <td>
                         <div style="text-align: left";>
-	                    <svg fill="steelblue" transform="scale(-1,1)" id="arrow-east" width="100" height="100" x="0px" y="0px" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000" xml:space="preserve">
-                                <g><g transform="matrix(1 0 0 -1 0 1536)"><path d="M990,1037.7c0-5.3-1.9-9.8-5.7-13.6L766.6,823.3c-6.1-5.3-12.7-6.4-19.8-3.4c-7.2,3.4-10.8,8.9-10.8,16.4v127H28.1c-5.3,0-9.6,1.7-13,5.1c-3.4,3.4-5.1,7.8-5.1,13v108.9c0,5.3,1.7,9.6,5.1,13c3.4,3.4,7.8,5.1,13,5.1h707.8v127c0,7.9,3.6,13.4,10.8,16.4c7.2,3,13.8,2.1,19.8-2.8l217.8-198.5C988.1,1046.9,990,1042.6,990,1037.7z"/></g></g>
-                            </div>
-                        </td>
+                            <img src="img/arrow_east.svg" width="50%"/>
+                        </div>
+                    </td>
                     <td>
                         <div id="legend"></div>
                     </td>
@@ -68,7 +63,7 @@
         e per sesso (colore più o meno intenso).
         <br><br>
         I dati originari sono disponibili a questo
-        <a href="http://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27">link</a>
+        <a href="https://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27">link</a>
         e consistono di una tabella di 117661 righe e 10 colonne contenente il conteggio del numero di studenti
         iscritti e immatricolati per provincia e regione di residenza e provincia della sede didattica dell'Ateneo, 
         nell'anno accademico 2015/16.
@@ -88,7 +83,7 @@
         <br>
         La visualizzazione permette di individuare dei trend regionali. Ad esempio, dal grafico relativo alla Puglia si evince 
         come 7137 studenti di medicina e 7201 studenti di ingegneria con residenza in Puglia si spostino in Atenei 
-        diregioni diverse dalla Puglia. Questi dati potrebbero motivare uno studio mirato ad individuare strategie regionali utili a
+        di regioni diverse dalla Puglia. Questi dati potrebbero motivare uno studio mirato ad individuare strategie regionali utili a
         limitare il numero di studenti residenti nella regione che si spostano per raggiungere un Ateneo
         al di fuori della regione in una determinate facoltà.
         <br><br>
@@ -106,7 +101,7 @@
 <script>
 
 var urlDati = "file02_2015-16_provenienze.csv";
-var urlDatiMIUR = "http://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27";
+var urlDatiMIUR = "https://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27";
 
 function visualizza(dati, regione, corsi) {
     d3.select("#region").html("");
@@ -328,18 +323,18 @@ function visualizza(dati, regione, corsi) {
     //add credits
     d3.select("#region")
         .append("img")
-        .attr("src", "img/Regione_thumb_" + regione + ".svg")
+        .attr("src", "img/Regione_thumb_" + regione.replace(" ", "_") + ".svg")
         .attr("width", 150)
         .attr("height", 150)
         .style("float", "middle");
     var crediti = d3.select("#credits");
     crediti.append("a")
-        .attr("href", "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione + ".svg")
+        .attr("href", "https://commons.wikimedia.org/wiki/File%3ARegione_thumb_" + regione.replace(" ", "_") + ".svg")
         .html("L'immagine della regione ")
     crediti.append("span")
         .html("e\' stata creata da Xander89 - licenza ");
     crediti.append("a")
-        .attr("href", "http://www.gnu.org/copyleft/fdl.html")
+        .attr("href", "https://www.gnu.org/copyleft/fdl.html")
         .html("GDFL");
     crediti.append("span")
         .html(" o ");
