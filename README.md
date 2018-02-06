@@ -9,7 +9,9 @@ Data contained in the data folder have been extracted with the following command
 
     wget -O file02_2015-16_provenienze.csv http://dati.ustat.miur.it/dataset/07d1c63f-9b1a-47f0-9648-66663e59c3f6/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27/download/file02_2015-16_provenienze.csv
 
-
+# Running the application
+    npm install
+    npm start
 
 # Licence
 
@@ -27,3 +29,7 @@ GNU Affero General Public License for more details.
 
 You should have received a copy of the GNU Affero General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+
+# Note
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). It uses React + D3js ES6.

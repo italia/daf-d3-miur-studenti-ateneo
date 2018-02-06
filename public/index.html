@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/logo_developers_italia.ico">
+    <link rel="canonical" href="https://italia.github.io/daf-d3-miur-studenti-ateneo/" />
+    <meta property="og:locale" content="it" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Flusso regionale degli studenti di Ateneo - A.A. 2015/2016" />
+    <meta property="og:description" content="Infografica del flusso di studenti di Ateneo nell'anno accademico 2015/2016 per regione, per sesso." />
+    <meta property="og:url" content="https://italia.github.io/daf-d3-miur-studenti-ateneo/" />
+    <meta name="twitter:description" content="Infografica del flusso di studenti di Ateneo nell'anno accademico 2015/2016 per regione, per sesso."/>
+    <meta name="twitter:title" content="Il flusso regionale degli studenti di Ateneo nell'A.A. 2015/2016" />
+    <meta name="twitter:site" content="@missunderstanding" />
+    <meta name="twitter:creator" content="@missunderstanding" />
+
+    <title>Flusso regionale degli studenti di Ateneo - A.A. 2015/2016</title>
+  </head>
+  <body>
+      <div id="root">
+      </div>
+      <div id="instructions" class="instructions">
+        Scegli una regione.
+      </div>
+      <br>
+      <div id="description">
+        L'infografica visualizza i dati raccolti dal MIUR relativi al numero, la residenza ed il sesso
+        degli studenti immatricolati ed iscritti negli Atenei italiani nell'anno accademico 2015/2016.
+        <br><br>
+        La visualizzazione raggruppa i dati per regione e mostra il flusso regionale degli studenti di Ateneo in Italia in tale anno.
+        In particolare, per ciascuna regione il grafico visualizza quanti studenti provenienti da altre regioni
+        sono iscritti a ciascun indirizzo (in blu, flusso entrante), quanti studenti studiano in atenei presenti
+        nella stessa regione di residenza (in beige), e quanti studenti invece lasciano la regione per studiare altrove
+        (in rosso, flusso uscente).
+        <br>
+        Per ciascuna regione il grafico visualizza anche come gli studenti sono divisi per indirizzo (Agraria, Architettura, etc)
+        e per sesso (colore più o meno intenso).
+        <br><br>
+        I dati originari sono disponibili a questo
+        <a href="https://dati.ustat.miur.it/dataset/2015-16-iscritti/resource/9bebad94-3c0b-469e-8e50-b474d52aeb27">link</a>
+        e consistono di una tabella di 117661 righe e 10 colonne contenente il conteggio del numero di studenti
+        iscritti e immatricolati per provincia e regione di residenza e provincia della sede didattica dell'Ateneo,
+        nell'anno accademico 2015/16.
+        <br><br>
+        Per capire il tipo di informazione che contiene l'infografica, possiamo confrontare regioni come la Lombardia e la Puglia.<br>
+        <br>
+        La Puglia presenta un rilevante flusso di studenti uscente (sulla sinistra - in
+        rosso - l'istogramma del numero di studenti residenti in Puglia ma iscritti o immatricolati in regioni diverse dalla Puglia)
+        di molto maggiore rispetto al flusso di studenti entrante (a destra - in blu l'istogramma del numero di studenti non residenti
+        in Puglia ma iscritti o immatricolati in Atenei pugliesi). Tuttavia in Puglia il flusso uscente di studenti e la somma
+        del flusso di studenti entranti e studenti stazionari (a destra - in beige - l'istogramma degli studenti residenti in Puglia
+        che sono iscritti ad Atenei pugliesi) risulta comparabile. La Lombardia presenta invece un flusso di studenti emigrati dalla
+        Lombardia sicuramente inferiore al flusso di studenti immigrati.
+        Molti studenti, sia in Lombardia che in Puglia si iscrivono ad Atenei della regione in cui risiedono (a destra - in
+        beige - l'istogramma del numero di studenti residenti nella regione e che studiano in Atenei della stessa regione).
+        <br>
+        La visualizzazione permette di individuare dei trend regionali. Ad esempio, dal grafico relativo alla Puglia si evince
+        come 7137 studenti di medicina e 7201 studenti di ingegneria con residenza in Puglia si spostino in Atenei
+        di regioni diverse dalla Puglia. Questi dati potrebbero motivare uno studio mirato ad individuare strategie regionali utili a
+        limitare il numero di studenti residenti nella regione che si spostano per raggiungere un Ateneo
+        al di fuori della regione in una determinata facoltà.
+        <br><br>
+        L'infografica mostra anche diversità presenti fra studenti di sesso diverso. Infatti per ciascun colore
+        (rosso, blu, beige), l'infografica utilizza due intensità, una più chiara per
+        rappresentare il numero di studenti di sesso maschile, ed una più scura per rappresentare il numero di studentesse. Il grafico
+        mostra come più studentesse risultino iscritte a discipline come l'insegnamento, la medicina, legge o chimica farmaceutica,
+        mentre più studenti di sesso maschili siano iscritti ad ingegneria o ad indirizzi scientifici.
+
+    </div>
+    <div id="credits" class="credits"></div>
+  </body>
+</html>

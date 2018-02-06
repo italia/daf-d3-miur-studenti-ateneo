@@ -1,0 +1,24 @@
+{
+  "name": "daf-d3-miur-studenti-ateneo",
+  "version": "0.0.2",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "1.1.0"
+  },
+  "homepage": "https://italia.github.io/daf-d3-miur-studenti-ateneo/",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "d3": "^4.2.6",
+    "lodash": "^4.16.1",
+    "react": "^15.3.2",
+    "react-bootstrap": "^0.30.3",
+    "react-dom": "^15.3.2",
+    "string": "^3.3.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
