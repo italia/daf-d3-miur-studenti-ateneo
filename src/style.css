@@ -5,6 +5,7 @@ h2 {
 button {
     margin-right: .5em;
     margin-bottom: .3em !important;
+    font-size: 1em !important;
 }
 
 .row {
@@ -14,6 +15,7 @@ button {
 body {
     font-family: Helvetica Neue;
     margin-left: 3em !important;
+    margin-right: 3em !important;
 }
 
 div.credits {
@@ -25,6 +27,10 @@ div.instructions {
     color: red;
     font-size: 0.8em;
     text-align: center;
+}
+
+div#description {
+    font-size: 1.5em !important;
 }
 
 .html .tag,
