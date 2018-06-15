@@ -19,13 +19,13 @@ WORKDIR /daf-d3-miur-studenti-ateneo
 RUN npm install
 
 # Build for production.
-RUN npm run build --production
+#RUN npm run build --production
 
 # Install `serve` to run the application.
 RUN npm install -g serve
 
 # Set the command to start the node server.
-CMD serve -l 3000 -s build
+CMD serve -l 3000
 
 # Tell Docker about the port we'll run on.
 EXPOSE 3000
