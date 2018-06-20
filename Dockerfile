@@ -16,7 +16,7 @@ RUN git clone https://github.com/italia/daf-d3-miur-studenti-ateneo
 
 WORKDIR /daf-d3-miur-studenti-ateneo
 
-RUN npm install --only=production
+RUN npm install
 
 
 # Build for production.
@@ -28,6 +28,8 @@ RUN npm install --only=production
 # Set the command to start the node server.
 #CMD serve -l 3000
 
+CMD [ "npm", "start" ]
+
 # Tell Docker about the port we'll run on.
 EXPOSE 3000
-CMD [ "npm", "start" ]
+
