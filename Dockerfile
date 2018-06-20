@@ -9,23 +9,25 @@ RUN apt-get update && apt-get install -y \
   git-core   
   #&& apt-get install -y build-essential python
 
-#RUN npm install -g node-gyp  
+RUN npm install -g node-gyp  
 
 # Copy all local files into the image.
 RUN git clone https://github.com/italia/daf-d3-miur-studenti-ateneo
 
 WORKDIR /daf-d3-miur-studenti-ateneo
 
-RUN npm install
+RUN npm install --only=production
+
 
 # Build for production.
 #RUN npm run build --production
 
 # Install `serve` to run the application.
-RUN npm install -g serve
+#RUN npm install -g serve
 
 # Set the command to start the node server.
-CMD serve -l 3000
+#CMD serve -l 3000
 
 # Tell Docker about the port we'll run on.
 EXPOSE 3000
+CMD [ "npm", "start" ]
