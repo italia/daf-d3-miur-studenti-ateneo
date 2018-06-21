@@ -1,0 +1,5 @@
+Nome: 'Flusso regionale degli studenti di ateneo - A.A. 2015-16 - Dati MIUR'
+Descrizione: 'Utilizzando React e d3.js, questa data application permette di visualizzare i dati del MIUR relativi al numero di studenti iscritti agli Atenei d'Italia nell'anno accademico 2015/2016. La visualizzazione permette di esplorare il flusso di studenti per ciascuna regione e quindi il numero di studenti che si sposta per motivi di studio al di fuori della propria regione di residenza, il numero di studenti immigrati ed il numero di studenti che rimane nella propria regione. I dati sono classificati per area di studio e sesso.' 
+Sorgente dati: 'MIUR'
+Autore: 'Ester Pantaleo'
+Github repository: 'https://github.com/italia/daf-d3-miur-studenti-ateneo'
