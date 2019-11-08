@@ -6,7 +6,7 @@
     "react-scripts": "^3.0.1"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "d3": "^4.2.6",
     "lodash": "^4.16.1",
     "react": "^15.3.2",
